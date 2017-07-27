@@ -19,8 +19,12 @@ function sendToDiscovery(query) {
         if (error) {
           reject(error);
         } else {
-          // resolve([data.results[0].text, data.results[1].text, data.results[2].text]);
-          resolve([data.results[0].title,data.results[0].text, data.results[0].url]);
+          if (data.results == null) {
+            console.log("Your call to Discovery was complete, but it didn't return a response. Try checking your Discovery data format.");
+            reject(error);
+          } else {
+            resolve([data.results[0].title,data.results[0].text, data.results[0].url]);
+          }
         }
     });
   });

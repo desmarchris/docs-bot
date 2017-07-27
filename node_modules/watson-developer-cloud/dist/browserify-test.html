@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>testing watson browserify</title>
+</head>
+<body>
+
+<script src="watson.js"></script>
+<script>
+//  var alchemy_language = Watson.alchemy_language({
+//    api_key: '46a1e8f5b886ef0609321a8a5fd729a948af8f78' //'<api_key>'
+//  });
+//
+//  var params = {
+//    text: 'IBM Watson won the Jeopardy television show hosted by Alex Trebek'
+//  };
+//
+//  alchemy_language.sentiment(params, function (err, response) {
+//    if (err)
+//      console.log('error:', err);
+//    else
+//      console.log(JSON.stringify(response, null, 2));
+//  });
+
+  var personality_insights = new Watson.PersonalityInsightsV2({
+    username: '75aa4902-b7d6-4565-8268-8a782293feab',
+    password: '47tkg0d7CRnA'
+  });
+
+  personality_insights.profile({
+      text: 'Enter more than 100 unique words here...',
+      language: 'en' },
+    function (err, response) {
+      if (err)
+        console.log('error:', err);
+      else
+        console.log(JSON.stringify(response, null, 2));
+    });
+</script>
+</body>
+</html>
